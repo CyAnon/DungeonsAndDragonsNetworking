@@ -13,14 +13,19 @@ public class ClientInfoPacket extends Packet implements Serializable {
 	private String clientName;
 	private Monster monster;
 	
-	public ClientInfoPacket(String name)
+	public ClientInfoPacket(String name, Monster monster) //used to start game and sync client with server
+	{
+		setClientName(name);
+		setMonster(monster);
+	}
+	
+	public ClientInfoPacket(String name) //not used yet
 	{
 		setClientName(name);
 	}
-	
-	public ClientInfoPacket(String name, Monster monster)
+
+	public ClientInfoPacket(Monster monster) //used to update client
 	{
-		setClientName(name);
 		setMonster(monster);
 	}
 
